@@ -1,4 +1,3 @@
 #!/bin/bash
 
-rsync -avxHAXP --exclude '.git*' .* ~/
-
+rsync -avxHAXP --exclude '.git*' .* ~/ # add --delete flag
