@@ -5,6 +5,12 @@
 [font]
 normal = { family = "LilexNerdFont", style = "Medium" }
 size = 15
+[cursor.style]
+shape = "Block"
+blinking = "On"
+
+[cursor]
+unfocused_hollow = false
 
 [colors.primary]
 background = "#1E1E2E"
