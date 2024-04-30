@@ -1,4 +1,4 @@
-sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pavucontrol xdg-utils alacritty openssh tmux starship rsync firefox less neovim unzip wl-clipboard zsh nodejs npm tree wget bluez blueman gdb bear nwg-look htop
+sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pavucontrol xdg-utils alacritty openssh tmux starship rsync firefox less neovim unzip wl-clipboard zsh nodejs npm tree wget bluez blueman gdb bear nwg-look htop ripgrep
 
 #---------------Tmux pluggin manager---------------
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

@@ -31,7 +31,12 @@ return {
         "lua_ls",
 	"jdtls",
         "clangd",
-        "pyright"
+        "pyright",
+        "tsserver",
+        "tailwindcss",
+        "emmet_ls",
+        "cssls",
+        "html"
       },
     })
 

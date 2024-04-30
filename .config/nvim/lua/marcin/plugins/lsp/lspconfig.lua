@@ -87,12 +87,39 @@ return {
         lspconfig["pyright"].setup({
             capabilities = capabilities
         }),
+
     ["jdtls"] = function ()
         lspconfig["jdtls"].setup({
         capabilities = capabilities
         })
     end,
 
+    ["tsserver"] = function ()
+        lspconfig["tsserver"].setup({
+        capabilities = capabilities
+        })
+    end,
+
+    ["tailwindcss"] = function ()
+        lspconfig["tailwindcss"].setup({
+        capabilities = capabilities
+        })
+    end,
+    ["emmet_ls"] = function ()
+        lspconfig["emmet_ls"].setup({
+        capabilities = capabilities
+        })
+    end,
+    ["cssls"] = function ()
+        lspconfig["cssls"].setup({
+        capabilities = capabilities
+        })
+    end,
+    ["html"] = function ()
+        lspconfig["html"].setup({
+        capabilities = capabilities
+        })
+    end,
     ["lua_ls"] = function()
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
