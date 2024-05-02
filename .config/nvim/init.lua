@@ -18,3 +18,9 @@ vim.o.relativenumber = true
 vim.opt.number = true
 
 vim.opt.commentstring = ""
+
+-- Black hole register mappings
+
+-- Define a keybind prefix for the black hole register
+vim.api.nvim_set_keymap('n', '<leader>d', '"_d', { noremap = true })
+vim.api.nvim_set_keymap('v', '<leader>d', '"_d', { noremap = true })
