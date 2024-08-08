@@ -9,6 +9,7 @@ Features:
 - Themed with cattpuccin mocha
 
 ##  Installation
+
 ```bash
 git clone
 cd Dotfiles & (
