@@ -1,21 +1,24 @@
-sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pavucontrol xdg-utils alacritty openssh tmux starship rsync firefox less neovim unzip wl-clipboard zsh nodejs npm tree wget bluez blueman gdb bear nwg-look htop ripgrep
+sudo pacman -Syu
+# Install apps
+sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pavucontrol xdg-utils alacritty tmux starship rsync firefox less neovim unzip wl-clipboard zsh tree bluez blueman nwg-look htop ripgrep wofi --noconfirm
+
 
 #---------------Tmux pluggin manager---------------
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 #-----------------------Yay------------------------
-# Needs fixing
-pushd /home/$(whoami)/
-git clone https://aur.archlinux.org/yay.git
-cd yay
+
+mkdir /tmp/yay
+cd /tmp/yay
+curl -OJ 'https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay'
 makepkg -si --noconfirm
-cd ..
-rm -rf yay
-popd
+cd /home/marcin/Dotfiles/
+rm -rf /tmp/yay
+
 #-----------------Adoptium JDK---------------------
+yay -S jdk21-temurin21.0.4.u7-1
+
 # sudo archlinux-java status
 
 #------------------Other packages------------------
-yay -S visual-studio-code-bin webcord postman-bin catppuccin-gtk-theme-mocha catppuccin-cursors-mocha dunst
-
-sudo pacman -S gradle
+yay -S  webcord catppuccin-gtk-theme-mocha catppuccin-cursors-mocha dunst --noconfirm
