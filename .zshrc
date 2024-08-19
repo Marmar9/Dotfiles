@@ -11,8 +11,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# My lines
 eval "$(ssh-agent -s)" > /dev/null
-ssh-add ~/ssh-keys/marcin > /dev/null 2>&1
-
+alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias grep='grep --color=auto'
 eval "$(starship init zsh)"

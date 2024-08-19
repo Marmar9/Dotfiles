@@ -1,6 +1,8 @@
+#!/bin/bash
+
 sudo pacman -Syu
 # Install apps
-sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pavucontrol xdg-utils alacritty tmux starship rsync firefox less neovim unzip wl-clipboard zsh tree bluez blueman nwg-look htop ripgrep wofi --noconfirm
+sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pavucontrol xdg-utils alacritty tmux starship rsync firefox less neovim unzip wl-clipboard zsh tree bluez blueman nwg-look htop ripgrep wofi lemurs pass wezterm yazi hyprlock --noconfirm
 
 
 #---------------Tmux pluggin manager---------------
