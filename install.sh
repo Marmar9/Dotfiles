@@ -1,8 +1,12 @@
 #!/bin/bash
 
+read -p "Do you want to install openrgb (type 'yes' for yes) : " openrgb
+
 sudo pacman -Syu
 # Install apps
 sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pulsemixer xdg-utils alacritty tmux starship rsync firefox less neovim unzip wl-clipboard zsh tree bluez blueman nwg-look qt5ct htop ripgrep wofi lemurs pass wezterm yazi hyprlock --noconfirm
+
+
 
 
 #---------------Tmux pluggin manager---------------
@@ -24,3 +28,8 @@ yay -S jdk21-temurin21.0.4.u7-1
 
 #------------------Other packages------------------
 yay -S  webcord catppuccin-gtk-theme-mocha catppuccin-cursors-mocha dunst --noconfirm
+
+if [[ "$openrgb" = "yes" ]]; then
+    sudo pacman -S i2c-tools --noconfirm 
+    yay -S openrgb-git --noconfirm
+fi
