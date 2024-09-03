@@ -25,9 +25,12 @@ rm -rf /tmp/yay
 yay -S jdk21-temurin21.0.4.u7-1
 
 # sudo archlinux-java status
+# -------------- Build dependencies ------------------
+
+sudo pacman -S rust
 
 #------------------Other packages------------------
-yay -S  webcord catppuccin-gtk-theme-mocha catppuccin-cursors-mocha dunst --noconfirm
+yay -S  webcord catppuccin-gtk-theme-mocha catppuccin-cursors-mocha dunst wl-gammarelay-rs --noconfirm
 
 if [[ "$openrgb" = "yes" ]]; then
     sudo pacman -S i2c-tools --noconfirm 
