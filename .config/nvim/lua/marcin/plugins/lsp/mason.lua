@@ -12,8 +12,6 @@ return {
 		-- import mason-lspconfig
 		local mason_lspconfig = require("mason-lspconfig")
 
-		local mason_tool_installer = require("mason-tool-installer")
-
 		-- enable mason and configure icons
 		mason.setup({
 			ui = {
@@ -30,6 +28,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"jdtls",
+				"kotlin_language_server",
 				"clangd",
 				"pyright",
 				"tsserver",
@@ -41,8 +40,10 @@ return {
 			},
 		})
 
-		mason_tool_installer.setup({
-			ensure_installed = {},
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				"ktlint",
+			},
 		})
 	end,
 }

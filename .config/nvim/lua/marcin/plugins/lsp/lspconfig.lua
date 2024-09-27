@@ -6,6 +6,7 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
 	},
+
 	config = function()
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
@@ -48,42 +49,20 @@ return {
 				})
 			end,
 
-			lspconfig["pyright"].setup({
-				capabilities = capabilities,
-			}),
-
 			["jdtls"] = function()
 				lspconfig["jdtls"].setup({
 					capabilities = capabilities,
+					cmd = { "/home/marcin/.local/share/nvim/mason/bin/jdtls" },
 				})
 			end,
 
-			["tsserver"] = function()
-				lspconfig["tsserver"].setup({
+			["kotlin_language_server"] = function()
+				lspconfig["kotlin_language_server"].setup({
 					capabilities = capabilities,
+					cmd = { "/home/marcin/.local/share/nvim/mason/bin/kotlin-language-server" },
 				})
 			end,
 
-			["tailwindcss"] = function()
-				lspconfig["tailwindcss"].setup({
-					capabilities = capabilities,
-				})
-			end,
-			["emmet_ls"] = function()
-				lspconfig["emmet_ls"].setup({
-					capabilities = capabilities,
-				})
-			end,
-			["cssls"] = function()
-				lspconfig["cssls"].setup({
-					capabilities = capabilities,
-				})
-			end,
-			["html"] = function()
-				lspconfig["html"].setup({
-					capabilities = capabilities,
-				})
-			end,
 			["lua_ls"] = function()
 				-- configure lua server (with special settings)
 				lspconfig["lua_ls"].setup({
