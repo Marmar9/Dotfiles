@@ -4,6 +4,7 @@ rsync -avxHAXP --exclude '.git*' .* ~/ # add --delete flag
 
 sudo cp etc/lemurs/wayland/hyprland /etc/lemurs/wayland/hyprland
 
+
 sudo ln -sf /usr/bin/nvim /usr/bin/v
 sudo ln -sf /usr/bin/nvim /usr/bin/vi
 

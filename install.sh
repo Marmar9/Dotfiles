@@ -4,9 +4,7 @@ read -p "Do you want to install openrgb (type 'yes' for yes) : " openrgb
 
 sudo pacman -Syu
 # Install apps
-sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pulsemixer xdg-utils alacritty tmux starship rsync firefox less neovim unzip wl-clipboard zsh tree bluez blueman nwg-look qt5ct htop ripgrep wofi lemurs pass wezterm yazi hyprlock cups --noconfirm
-
-
+sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pulsemixer xdg-utils alacritty tmux starship rsync firefox less neovim unzip wl-clipboard zsh tree bluez blueman nwg-look qt5ct htop ripgrep wofi lemurs pass wezterm yazi hyprlock waybar cups --noconfirm
 
 
 #---------------Tmux pluggin manager---------------
@@ -37,4 +35,14 @@ if [[ "$openrgb" = "yes" ]]; then
     yay -S openrgb-git --noconfirm
 fi
 
+# Cups for printer support
+# sudo systemctl enable --now cups
 
+sudo usermod -aG lp $(whoami)
+
+# Imf not working at all yet
+# sudo pacman -S fcitx-im
+
+sudo cp etc/locale.gen etc/locale.conf /etc
+
+sudo locale-gen

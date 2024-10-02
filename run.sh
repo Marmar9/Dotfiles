@@ -8,8 +8,4 @@ source ./sync.sh
 
 chsh -s /usr/bin/zsh
 
-# Setup cups
 
-# sudo systemctl enable --now cups
-
-sudo usermod -aG lp $(whoami)
