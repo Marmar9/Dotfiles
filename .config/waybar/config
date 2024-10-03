@@ -70,7 +70,7 @@
     },
 
     "network": {
-        "interface": "enp1s0", // (Optional) To force the use of this interface
+        "interface": "wlp3s0", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         // "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-ethernet": "DIGI 1000 ",

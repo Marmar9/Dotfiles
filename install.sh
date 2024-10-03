@@ -41,7 +41,7 @@ fi
 sudo usermod -aG lp $(whoami)
 
 # Imf not working at all yet
-# sudo pacman -S fcitx-im
+sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-lua ibus noto-fonts-cjk 
 
 sudo cp etc/locale.gen etc/locale.conf /etc
 
