@@ -48,18 +48,28 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["sqls"] = function()
+				lspconfig["sqls"].setup({
+					capabilities = capabilities,
+					cmd = {
+						"/home/" .. os.getenv("USER") .. "/.local/share/nvim/mason/bin/sqls",
+						"-config",
+						"config.yml",
+					},
+				})
+			end,
 
 			["jdtls"] = function()
 				lspconfig["jdtls"].setup({
 					capabilities = capabilities,
-					cmd = { "/home/marcin/.local/share/nvim/mason/bin/jdtls" },
+					cmd = { "/home/" .. os.getenv("USER") .. "/.local/share/nvim/mason/bin/jdtls" },
 				})
 			end,
 
 			["kotlin_language_server"] = function()
 				lspconfig["kotlin_language_server"].setup({
 					capabilities = capabilities,
-					cmd = { "/home/marcin/.local/share/nvim/mason/bin/kotlin-language-server" },
+					cmd = { "/home/" .. os.getenv("USER") .. "/.local/share/nvim/mason/bin/kotlin-language-server" },
 				})
 			end,
 

@@ -37,6 +37,7 @@ return {
 				"cssls",
 				"html",
 				"gopls",
+				"sqls",
 			},
 		})
 
