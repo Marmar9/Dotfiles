@@ -4,7 +4,7 @@ read -p "Do you want to install openrgb (type 'yes' for yes) : " openrgb
 
 sudo pacman -Syu
 # Install apps
-sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pulsemixer xdg-utils alacritty tmux starship rsync firefox less neovim unzip wl-clipboard zsh tree bluez blueman nwg-look qt5ct htop ripgrep wofi lemurs pass wezterm yazi hyprlock waybar cups noto-fonts --noconfirm
+sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pulsemixer xdg-utils alacritty tmux starship rsync firefox less neovim unzip wl-clipboard zsh tree bluez blueman nwg-look qt5ct htop ripgrep wofi lemurs pass wezterm yazi hyprlock waybar cups noto-fonts noto-fonts-emoji --noconfirm
 
 
 #---------------Tmux pluggin manager---------------
@@ -40,7 +40,7 @@ fi
 
 sudo usermod -aG lp $(whoami)
 
-# Imf not working at all yet
+# Works 
 sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-lua ibus noto-fonts-cjk 
 
 sudo cp etc/locale.gen etc/locale.conf /etc
