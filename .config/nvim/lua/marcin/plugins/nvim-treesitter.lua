@@ -16,6 +16,7 @@ return {
 				"kotlin",
 				"groovy",
 				"cmake",
+				"sql",
 			},
 			sync_install = false,
 			highlight = {
