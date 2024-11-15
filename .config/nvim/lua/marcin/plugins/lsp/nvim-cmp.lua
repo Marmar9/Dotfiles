@@ -25,6 +25,25 @@ return {
 		-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
 		require("luasnip.loaders.from_vscode").lazy_load()
 
+		vim.keymap.set({ "i" }, "<C-K>", function()
+			luasnip.expand()
+		end, { silent = true })
+		vim.keymap.set({ "i", "s" }, "<C-L>", function()
+			luasnip.jump(1)
+		end, { silent = true })
+		vim.keymap.set({ "i", "s" }, "<C-H>", function()
+			luasnip.jump(-1)
+		end, { silent = true })
+
+		vim.keymap.set({ "i", "s" }, "<C-E>", function()
+			if luasnip.choice_active() then
+				luasnip.change_choice(1)
+			end
+		end, { silent = true })
+		-- If you want insert `(` after select function or method item
+		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",

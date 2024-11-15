@@ -24,12 +24,21 @@ return {
 			callback = function(ev)
 				-- Buffer local mappings.
 				-- See `:help vim.lsp.*` for documentation on any of the below functions
-				local opts = { buffer = ev.buf, silent = true }
+				local opts = { silent = true }
 				-- set keybinds
 				opts.desc = "Show LSP references"
+
+				vim.api.nvim_buf_set_keymap(ev.buf, "n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
+
+				vim.api.nvim_buf_set_keymap(ev.buf, "n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
+				vim.api.nvim_set_keymap(
+					"n",
+					"<leader>rn",
+					"<cmd>lua vim.lsp.buf.rename()<CR>",
+					{ noremap = true, silent = true }
+				) -- Rename symbol
 			end,
 		})
-
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
