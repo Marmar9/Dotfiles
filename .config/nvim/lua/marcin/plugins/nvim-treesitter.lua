@@ -17,6 +17,8 @@ return {
 				"groovy",
 				"cmake",
 				"sql",
+				"glsl",
+				"make",
 			},
 			sync_install = false,
 			highlight = {
