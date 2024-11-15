@@ -4,7 +4,7 @@ read -p "Do you want to install openrgb (type 'yes' for yes) : " openrgb
 
 sudo pacman -Syu
 # Install apps
-sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pulsemixer xdg-utils alacritty tmux starship rsync firefox less neovim unzip zsh tree bluez blueman nwg-look qt5ct wofi lemurs pass wezterm yazi hyprlock waybar cups noto-fonts noto-fonts-emoji grim slurp wl-clipboard --noconfirm
+sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pulsemixer iwd dhclient bluez bluez-utils xdg-utils alacritty tmux starship rsync firefox less neovim unzip zsh tree nwg-look qt5ct wofi lemurs pass wezterm yazi hyprlock waybar cups noto-fonts noto-fonts-emoji grim slurp wl-clipboard --noconfirm
 
 
 #---------------Tmux pluggin manager---------------
@@ -47,7 +47,11 @@ sudo cp etc/locale.gen etc/locale.conf /etc
 
 sudo locale-gen
 
+# iwd config
+
+sudo cp etc/iwd/main.conf /etc/iwd
 
 # Create dir for screenshots
 
 mkdir /home/$(whoami)/screenshots
+
