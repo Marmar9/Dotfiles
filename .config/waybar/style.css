@@ -60,6 +60,10 @@ window#waybar.solo {
     background-color: #eb4d4b;
 }
 
+#workspaces button.active {
+    background-color: rgba(75, 167, 235, 0.5);
+}
+
 #mode {
     background-color: #64727D;
     border-bottom: 3px solid #ffffff;
