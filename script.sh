@@ -1,3 +1,4 @@
 #/bin/bash
 
-rsync -avxHAXP --exclude '.git*' .* ~/ # add --delete flag
+rsync -avxHXP config/* ~/.config
+sudo rsync -avxHXP etc/* /etc

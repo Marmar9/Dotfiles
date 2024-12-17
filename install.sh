@@ -2,14 +2,6 @@
 
 read -p "Do you want to install openrgb (type 'yes' for yes) : " openrgb
 
-sudo pacman -Syu
-# Install apps
-sudo pacman -S hyprland pipewire pipewire-pulse pipewire-jack pulsemixer iwd dhclient bluez bluez-utils xdg-utils alacritty tmux starship rsync firefox less neovim unzip zsh tree nwg-look qt5ct wofi lemurs pass wezterm yazi hyprlock waybar cups noto-fonts noto-fonts-emoji grim slurp wl-clipboard --noconfirm
-
-
-#---------------Tmux pluggin manager---------------
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
 #-----------------------Yay------------------------
 
 mkdir /tmp/yay
@@ -19,39 +11,43 @@ makepkg -si --noconfirm
 cd /home/marcin/Dotfiles/
 rm -rf /tmp/yay
 
+sudo pacman -Syu
+
+# Install apps
+
+sudo yay -S --needed --noconfirm - < packages.txt
+
+#---------------Tmux pluggin manager---------------
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 #-----------------Adoptium JDK---------------------
 yay -S jdk21-temurin21.0.4.u7-1
 
 # sudo archlinux-java status
-# -------------- Build dependencies ------------------
-
-sudo pacman -S rust
 
 #------------------Other packages------------------
-yay -S  webcord catppuccin-gtk-theme-mocha catppuccin-cursors-mocha dunst --noconfirm
 
 if [[ "$openrgb" = "yes" ]]; then
     sudo pacman -S i2c-tools --noconfirm 
     yay -S openrgb-git --noconfirm
 fi
 
+sudo usermod -aG lp $(whoami)
+
+# Create dir for screenshots
+mkdir /home/$(whoami)/screenshots
+
+# Sync files
+rsync -avxHXP config/* ~/.config
+sudo rsync -avxHXP etc/* /etc
+cp .zshrc ~/
+cp .zshenv ~/
+
+
+sudo locale-gen
+chsh -s /usr/bin/zsh
+
 # Cups for printer support
 # sudo systemctl enable --now cups
 
-sudo usermod -aG lp $(whoami)
-
-# Works 
-sudo pacman -S fcitx5-im fcitx5-chinese-addons fcitx5-lua ibus noto-fonts-cjk 
-
-sudo cp etc/locale.gen etc/locale.conf /etc
-
-sudo locale-gen
-
-# iwd config
-
-sudo cp etc/iwd/main.conf /etc/iwd
-
-# Create dir for screenshots
-
-mkdir /home/$(whoami)/screenshots
 
