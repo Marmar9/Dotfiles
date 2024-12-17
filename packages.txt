@@ -27,6 +27,7 @@ waybar
 cups
 noto-fonts
 noto-fonts-emoji
+ttf-lilex-nerd
 grim
 slurp
 wl-clipboard
