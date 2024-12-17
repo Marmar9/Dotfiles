@@ -14,7 +14,7 @@ compinit
 eval "$(ssh-agent -s)" > /dev/null
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
-alias grep='grep --color=auto'
+alias grep='rg --color=auto'
 eval "$(starship init zsh)"
 
 # For yazi file manager

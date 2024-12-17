@@ -4,7 +4,6 @@ pipewire-pulse
 pipewire-jack
 pulsemixer
 iwd
-dhclient
 bluez
 bluez-utils
 xdg-utils
@@ -15,7 +14,6 @@ rsync
 firefox
 less
 neovim
-unzip
 zsh
 tree
 nwg-look
@@ -24,7 +22,6 @@ wofi
 lemurs
 pass
 wezterm
-yazi
 hyprlock
 waybar
 cups
@@ -33,6 +30,8 @@ noto-fonts-emoji
 grim
 slurp
 wl-clipboard
+fzf
+ripgrep
 webcord
 catppuccin-gtk-theme-mocha
 catppuccin-cursors-mocha
@@ -41,3 +40,4 @@ fcitx5-chinese-addons
 fcitx5-lua
 ibus
 noto-fonts-cjk
+yazi-git
