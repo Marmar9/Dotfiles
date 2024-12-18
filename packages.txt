@@ -32,9 +32,12 @@ grim
 slurp
 wl-clipboard
 fzf
-ripgrep
 p7zip
 zoxide
+poppler
+imagemagic
+ripgrep
+jq
 webcord
 catppuccin-gtk-theme-mocha
 catppuccin-cursors-mocha
