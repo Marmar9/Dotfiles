@@ -50,3 +50,7 @@ chsh -s /usr/bin/zsh
 # Cups for printer support
 # sudo systemctl enable --now cups
 
+
+# Install yazi plugins
+
+ya pack -a dedukun/relative-motions

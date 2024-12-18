@@ -33,6 +33,8 @@ slurp
 wl-clipboard
 fzf
 ripgrep
+p7zip
+zoxide
 webcord
 catppuccin-gtk-theme-mocha
 catppuccin-cursors-mocha
