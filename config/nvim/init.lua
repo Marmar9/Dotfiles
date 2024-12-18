@@ -7,6 +7,9 @@ require("marcin.lazy")
 vim.o.termguicolors = true
 vim.cmd("colorscheme catppuccin")
 
+-- Bind Ctrl + c to quit
+vim.api.nvim_set_keymap("n", "<C-c>", ":q<CR>", { noremap = true, silent = true })
+
 -- Set indentation level to 4 spaces
 vim.opt.shiftwidth = 4
 
