@@ -4,11 +4,11 @@ return {
 	event = "VeryLazy",
 	keys = {
 		-- 👇 in this section, choose your own keymappings!
-		{
-			"<leader>t",
-			"<cmd>Yazi<cr>",
-			desc = "Open yazi at the current file",
-		},
+		--	{
+		--		"<leader>t",
+		--		"<cmd>Yazi<cr>",
+		--		desc = "Open yazi at the current file",
+		--	},
 		{
 			-- Open in the current working directory
 			"<leader>cw",
@@ -18,7 +18,7 @@ return {
 		{
 			-- NOTE: this requires a version of yazi that includes
 			-- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
-			"<c-up>",
+			"<leader>t",
 			"<cmd>Yazi toggle<cr>",
 			desc = "Resume the last yazi session",
 		},
