@@ -38,6 +38,7 @@ poppler
 imagemagic
 ripgrep
 jq
+kitty
 webcord
 catppuccin-gtk-theme-mocha
 catppuccin-cursors-mocha
