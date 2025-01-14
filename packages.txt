@@ -27,7 +27,6 @@ waybar
 cups
 noto-fonts
 noto-fonts-emoji
-ttf-lilex-nerd
 grim
 slurp
 wl-clipboard
@@ -48,3 +47,4 @@ fcitx5-lua
 ibus
 noto-fonts-cjk
 yazi-git
+ttf-firacode-nerd
