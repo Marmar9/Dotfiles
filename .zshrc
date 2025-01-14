@@ -16,7 +16,7 @@ alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias grep='rg --color=auto'
 eval "$(starship init zsh)"
-
+eval "$(zoxide init zsh)"
 # For yazi file manager
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
