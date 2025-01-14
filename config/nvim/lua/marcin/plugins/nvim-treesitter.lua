@@ -19,6 +19,7 @@ return {
 				"sql",
 				"glsl",
 				"make",
+				"gn",
 			},
 			sync_install = false,
 			highlight = {
