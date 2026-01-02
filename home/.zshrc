@@ -1,8 +1,12 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+# HISTFILE=~/.histfile
+HISTSIZE=0
+SAVEHIST=0
+
 bindkey -e
+export KEYTIMEOUT=1
+
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/marcin/.zshrc'
@@ -11,13 +15,14 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-eval "$(ssh-agent -s)" > /dev/null
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
-alias grep='rg --color=auto'
+alias dots=$HOME/dotfiles/scripts/files.sh
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-# For yazi file manager
+eval "$(atuin init zsh)"
+
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
@@ -26,3 +31,4 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+

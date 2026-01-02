@@ -6,18 +6,18 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { "prettier" },
-				typescript = { "prettier" },
-				javascriptreact = { "prettier" },
-				typescriptreact = { "prettier" },
-				go = { "prettier" },
-				css = { "prettier" },
-				html = { "prettier" },
-				json = { "prettier" },
-				yaml = { "prettier" },
-				markdown = { "prettier" },
-				graphql = { "prettier" },
-				liquid = { "prettier" },
+				javascript = { "biome-check" },
+				typescript = { "biome-check" },
+				javascriptreact = { "biome-check" },
+				typescriptreact = { "biome-check" },
+				go = { "biome-check" },
+				css = { "biome-check" },
+				html = { "biome-check" },
+				json = { "biome-check" },
+				yaml = { "biome-check" },
+				markdown = { "biome-check" },
+				graphql = { "biome-check" },
+				liquid = { "biome-check" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				sql = { "sql_formatter" },
@@ -25,7 +25,7 @@ return {
 			format_on_save = {
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 100,
+				timeout_ms = 3000,
 			},
 		})
 
@@ -33,7 +33,7 @@ return {
 			conform.format({
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 1000,
+				timeout_ms = 3000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 	end,

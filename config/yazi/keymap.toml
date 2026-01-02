@@ -44,6 +44,6 @@ run = "plugin relative-motions --args=9"
 desc = "Move in relative steps"
 
 [[manager.prepend_keymap]]
-on   = "<C-m>"
-run  = 'open'
-desc = "Open file with terminal style enter"
+on   = "<C-f>"
+run  = 'find --insensitive'
+desc = "Bind find to more accessible Ctr + f"

@@ -2,23 +2,12 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
+		-- "hrsh7th/cmp-nvim-lsp",
+		"saghen/blink.cmp",
 		{ "folke/neodev.nvim", opts = {} },
 	},
 
 	config = function()
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
-
-		-- import mason_lspconfig plugin
-		local mason_lspconfig = require("mason-lspconfig")
-
-		-- import cmp-nvim-lsp plugin
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-		local keymap = vim.keymap -- for conciseness
-
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
@@ -37,10 +26,10 @@ return {
 					"<cmd>lua vim.lsp.buf.rename()<CR>",
 					{ noremap = true, silent = true }
 				) -- Rename symbol
+
+				vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { buffer = true, desc = "Code Action" })
 			end,
 		})
-		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
 		-- (not in youtube nvim video)
@@ -50,55 +39,80 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		mason_lspconfig.setup_handlers({
-			-- default handler for installed servers
-			function(server_name)
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-				})
-			end,
-			["sqls"] = function()
-				lspconfig["sqls"].setup({
-					capabilities = capabilities,
-					cmd = {
-						"/home/" .. os.getenv("USER") .. "/.local/share/nvim/mason/bin/sqls",
-						"-config",
-						"config.yml",
+		local lsp_path = vim.fs.joinpath(vim.fn.stdpath("data"), "mason", "bin")
+
+		-- vim.lsp.config("*", {
+		-- 	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		-- })
+
+		-- vim.lsp.config["luals"] =  Old way
+
+		local lazy_root = require("lazy.core.config").options.root
+		vim.lsp.config("luals", {
+			-- cmd = { "lua-language-server" }, Does work from some reason
+			cmd = { lsp_path .. "/lua-language-server" },
+			filetypes = { "lua" },
+			root_markers = { { ".luarc.json", ".luarc.jsonc" }, ".git" },
+			-- specific settings to send to the server. the schema is server-defined.
+			-- example: https://raw.githubusercontent.com/luals/vscode-lua/master/setting/schema.json
+
+			settings = {
+				Lua = {
+					runtime = {
+						version = "LuaJIT", -- Neovim uses LuaJIT
+						path = vim.split(package.path, ";"), -- ensures standard Lua module resolution patterns
 					},
-				})
-			end,
-
-			["jdtls"] = function()
-				lspconfig["jdtls"].setup({
-					capabilities = capabilities,
-					cmd = { "/home/" .. os.getenv("USER") .. "/.local/share/nvim/mason/bin/jdtls" },
-				})
-			end,
-
-			["kotlin_language_server"] = function()
-				lspconfig["kotlin_language_server"].setup({
-					capabilities = capabilities,
-					cmd = { "/home/" .. os.getenv("USER") .. "/.local/share/nvim/mason/bin/kotlin-language-server" },
-				})
-			end,
-
-			["lua_ls"] = function()
-				-- configure lua server (with special settings)
-				lspconfig["lua_ls"].setup({
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							-- make the language server recognize "vim" global
-							diagnostics = {
-								globals = { "vim" },
-							},
-							completion = {
-								callSnippet = "Replace",
-							},
+					diagnostics = {
+						globals = { "vim" }, -- prevent "undefined global 'vim'" warnings
+					},
+					workspace = {
+						library = {
+							vim.env.VIMRUNTIME, -- only include Neovim runtime
+							lazy_root,
 						},
+						checkThirdParty = false, -- don’t scan random folders like .vscode
 					},
-				})
-			end,
+					telemetry = {
+						enable = false, -- disable sending telemetry data
+					},
+				},
+			},
 		})
+		vim.lsp.enable("luals")
+
+		-- Typescript linter
+		vim.lsp.config("biome", {})
+		vim.lsp.enable("biome")
+
+		-- Typescript lsp
+		--vim.lsp.config("tsgo", {
+		--	cmd = { os.getenv("XDG_CACHE_HOME") .. "/.bun/bin/tsgo", "--lsp", "--stdio" },
+		--	filetypes = { "typescriptreact", "typescript" },
+		--	root_markers = { "package.json", ".git" },
+		--})
+
+		--vim.lsp.enable("tsgo")
+
+		-- Typescript lsp
+		vim.lsp.config("ts_ls", {})
+
+		vim.lsp.enable("ts_ls")
+
+		-- Css lsp
+		vim.lsp.config("cssls", {})
+
+		vim.lsp.enable("cssls")
+
+		-- Tailwind lsp
+		vim.lsp.config("tailwindcss", {})
+		vim.lsp.enable("tailwindcss")
+
+		-- Json lsp
+		vim.lsp.config("jsonls", {})
+		vim.lsp.enable("jsonls")
+
+		-- Cpp lsp
+		vim.lsp.config("clangd", {})
+		vim.lsp.enable("clangd")
 	end,
 }

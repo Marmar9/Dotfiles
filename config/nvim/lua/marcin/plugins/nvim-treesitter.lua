@@ -20,6 +20,9 @@ return {
 				"glsl",
 				"make",
 				"gn",
+				"vim",
+				"vimdoc",
+				"jsonc",
 			},
 			sync_install = false,
 			highlight = {
