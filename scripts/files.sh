@@ -1,28 +1,28 @@
 #!/bin/bash
 
-if [ $PWD != "$HOME/dotfiles/" ]; then
-    pushd $HOME/dotfiles/
-fi
+function rsync {
+    command rsync \
+        --recursive \
+        --times \
+        --out-format="Updated: %n" \
+        --exclude=sync.sh "$@" 
+}
 
-if [ -f "$XDG_CONFIG_HOME/hypr/monitors.conf" ]; then
-    rm "$XDG_CONFIG_HOME/hypr/monitors.conf"
-fi
+function sudo_rsync {
+    command sudo rsync \
+        --recursive \
+        --times \
+        --out-format="Updated: %n" \
+        --exclude=sync.sh "$@" 
+}
 
-height_sum=0
 
-hyprctl monitors -j | jq -r '.[] | "\(.name) \(.availableModes[0])"' | while read monitor mode; do
-    height=$(echo $mode | sed -n "s/.\{0,\}x\([0-9]\{1,\}\)@.\{0,\}/\1/p")
-    echo $height
-    if [ $height = "1080" ]; then
-        echo "monitor = $monitor, $mode, 0x-$height_sum, 1" >> $XDG_CONFIG_HOME/hypr/monitors.conf
-    else
-        echo "monitor = $monitor, $mode, 0x-$height_sum, 2" >> $XDG_CONFIG_HOME/hypr/monitors.conf
-    fi
+for dir in $(find "$HOME/dotfiles" -mindepth 1 -maxdepth 1 -type d); do
+    cd $dir
 
-    height_sum=$(($height_sum + $height))
+    # Check there are files to be synced
+    [ -f "sync.sh" ] || continue
+    
+    source sync.sh
 done
 
-
-rsync -rvhP --no-o --no-g home/ ~/
-rsync -rlvhP config/ $XDG_CONFIG_HOME/
-sudo rsync -vhP etc /etc
