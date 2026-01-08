@@ -114,5 +114,13 @@ return {
 		-- Cpp lsp
 		vim.lsp.config("clangd", {})
 		vim.lsp.enable("clangd")
+
+		-- Python type checker
+		vim.lsp.config("pyrefly", {})
+		vim.lsp.enable("pyrefly")
+
+		-- Python linter
+		vim.lsp.config("ruff", {})
+		vim.lsp.enable("ruff")
 	end,
 }

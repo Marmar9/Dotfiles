@@ -29,20 +29,24 @@ return {
 
 		local lsps = {
 			"lua-language-server",
-			"stylua",
-			"jdtls",
 			"kotlin-language-server",
 			"clangd",
-			"pyright",
-			"biome",
-			"tailwindcss-language-server", --
-                        "typescript-language-server",
-			-- "emmet_ls",
-			"css-lsp",
-			"html-lsp",
 			"gopls",
 			"sqls",
+			-- Lua
+			"stylua",
+			"jdtls",
+			-- Python
+			"pyrefly",
+			"ruff",
+			"isort",
+			-- Web
+			"css-lsp",
+			"html-lsp",
 			"json-lsp",
+			"tailwindcss-language-server", --
+			"typescript-language-server",
+			"biome",
 		}
 
 		for _, lsp in ipairs(lsps) do

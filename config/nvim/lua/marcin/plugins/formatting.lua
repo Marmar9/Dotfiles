@@ -19,7 +19,7 @@ return {
 				graphql = { "biome-check" },
 				liquid = { "biome-check" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "isort", "ruff_format" },
 				sql = { "sql_formatter" },
 			},
 			format_on_save = {
