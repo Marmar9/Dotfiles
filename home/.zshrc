@@ -17,6 +17,7 @@ compinit
 
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
+alias lg='lazygit'
 alias dots=$HOME/dotfiles/scripts/files.sh
 
 eval "$(starship init zsh)"

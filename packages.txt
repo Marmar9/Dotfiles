@@ -45,8 +45,9 @@ fcitx5-chinese-addons
 fcitx5-lua
 ibus
 noto-fonts-cjk
-yazi-git
+yazi
 ttf-firacode-nerd
 atuin
 hyprunset
 wlopm
+lazygit
