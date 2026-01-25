@@ -20,7 +20,6 @@ qt5ct
 wofi
 lemurs
 pass
-wezterm
 hyprlock
 waybar
 cups
@@ -37,7 +36,6 @@ imagemagic
 ripgrep
 jq
 kitty
-webcord
 catppuccin-gtk-theme-mocha
 catppuccin-cursors-mocha
 fcitx5-im
