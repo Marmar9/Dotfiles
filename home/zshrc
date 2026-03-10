@@ -18,10 +18,11 @@ compinit
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias lg='lazygit'
+alias oc='opencode'
 alias dots=$HOME/dotfiles/scripts/files.sh
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 eval "$(atuin init zsh)"
 
 function y() {

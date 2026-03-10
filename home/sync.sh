@@ -1,3 +1,6 @@
 #!/bin/env bash
 
-rsync --no-o --no-g ./ ~/
+for file in $(find . -type f ! -name "sync.sh") ; do
+    rsync --no-o --no-g $file ~/.$(basename $file)
+done
+

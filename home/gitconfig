@@ -1,0 +1,6 @@
+[core]
+    editor = nvim
+
+[user]
+    name = Marcin Chiliński
+    email = marcin.chilinski.mobile@gmail.com
